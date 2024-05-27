@@ -14,18 +14,14 @@
   <div class="pagesView">
     @for (page of document().pages; track page.imageUrl) {
       <div class="imageContainer">
-        <img
-          #pageImage
-          class="image"
-          draggable="false"
-          [src]="page.imageUrl"
-          (load)="onImageLoad($event, page.imageUrl)"
-          [style.width.px]="imageWidth(page.imageUrl)"
-          (dblclick)="createAnnotation($event, page.imageUrl)"
-          (dragover)="$event.preventDefault()"
-        />
+        <app-image
+          [page]="page"
+          [zoom]="zoom"
+          (annotationCreated)="createAnnotation($event, page.imageUrl)"
+          (imageLoaded)="onImageLoad(page.imageUrl)"
+        ></app-image>
 
-        @for (annotation of (annotations[page.imageUrl] || []); track $index) {
+        @for (annotation of annotations.getPage(page.imageUrl); track $index) {
           <div
             class="annotation"
             [style.left.px]="annotation.x"

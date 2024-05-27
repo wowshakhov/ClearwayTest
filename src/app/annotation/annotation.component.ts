@@ -1,5 +1,5 @@
 import { Component, input, output } from '@angular/core';
-import { AnnotationData } from '../../annotation-data';
+import { AnnotationData } from '../annotation-data';
 import { CommonModule } from '@angular/common';
 
 @Component({

@@ -1,0 +1,9 @@
+<img
+  class="image"
+  draggable="false"
+  [src]="page().imageUrl"
+  (load)="onImageLoad($event)"
+  [style.width.px]="imageWidth()"
+  (dblclick)="onCreateAnnotation($event)"
+  (dragover)="$event.preventDefault()"
+/>

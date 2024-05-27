@@ -1,6 +1,5 @@
 import { Component, input, output } from '@angular/core';
-import * as uuid from 'uuid';
-import { AnnotationData } from '../../annotation-data';
+import { AnnotationData } from '../annotation-data';
 import { FormsModule } from '@angular/forms';
 
 @Component({
