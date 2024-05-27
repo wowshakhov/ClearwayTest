@@ -5,11 +5,11 @@
 ></app-annotation-editor>
 
 <div class="documentView" (dragover)="$event.preventDefault()">
-  <h1>{{ document().name }}</h1>
-
-  <app-zoom *ngIf="isLoaded" class="zoom spacer" [(zoom)]="zoom" (zoomChange)="onZoomChange()"></app-zoom>
-  
-  <button class="spacer" (click)="onSave()">Save</button>
+  <div class="header">
+    <h1>{{ document().name }}</h1>
+    <app-zoom *ngIf="isLoaded" class="zoom spacer" [(zoom)]="zoom" (zoomChange)="onZoomChange()"></app-zoom>
+    <button class="spacer" (click)="onSave()">Save</button>
+  </div>
 
   <div class="pagesView">
     @for (page of document().pages; track page.imageUrl) {
