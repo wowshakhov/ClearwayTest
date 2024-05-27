@@ -8,11 +8,12 @@ import * as uuid from 'uuid';
 import { AnnotationCollection } from '../annotation-collection';
 import { AnnotationData, adjustZoom } from '../annotation-data';
 import { ImageComponent } from '../image/image.component';
+import { AnnotationDragDirective } from '../annotation-drag.directive';
 
 @Component({
   selector: 'app-document-viewer',
   standalone: true,
-  imports: [CommonModule, ZoomComponent, AnnotationEditorComponent, AnnotationComponent, ImageComponent],
+  imports: [CommonModule, ZoomComponent, AnnotationEditorComponent, AnnotationComponent, ImageComponent, AnnotationDragDirective],
   templateUrl: './document-viewer.component.html',
   styleUrl: './document-viewer.component.scss'
 })
@@ -48,11 +49,6 @@ export class DocumentViewerComponent {
   public onAnnotationDeleted(annotationData: AnnotationData) {
     this.annotations.deleteAnnotation(annotationData);
   }
-
-  public onAnnotationDragged(event: DragEvent, annotationData: AnnotationData) {
-    annotationData.x += event.offsetX - 8;
-    annotationData.y += event.offsetY - 12;
-  };
 
   public onZoomChange() {
     this.annotations.getPages().forEach(page => {

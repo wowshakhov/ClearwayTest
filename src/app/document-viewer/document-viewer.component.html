@@ -26,10 +26,10 @@
             class="annotation"
             [style.left.px]="annotation.x"
             [style.top.px]="annotation.y"
-            (dragend)="onAnnotationDragged($event, annotation)"
           >
             <app-annotation
               [annotationData]="annotation"
+              [appAnnotationDrag]="annotation"
               (annotationDeleted)="onAnnotationDeleted(annotation)"
             ></app-annotation>
           </div>
