@@ -1,0 +1,34 @@
+.documentView {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.spacer {
+  margin-bottom: 16px;
+}
+
+.pagesView {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.imageContainer {
+  position: relative;
+}
+
+.image {
+  border: 1px solid black;
+  margin-bottom: 16px;
+}
+
+.annotation {
+  position: absolute;
+  z-index: 1;
+  background-color: white;
+}
+
+.zoom {
+  display: flex;
+}

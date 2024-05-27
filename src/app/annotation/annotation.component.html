@@ -1,0 +1,12 @@
+<div
+  class="annotation"
+>
+  <div class="header">
+    <div class="dragHandle" draggable="true">𓃑</div>
+    <button (click)="onDelete()">x</button>  
+  </div>
+  <div class="content">
+    <div *ngIf="annotationData().text">{{ annotationData().text }}</div>
+    <img draggable="false" class="image" *ngIf="annotationData().image" [src]="annotationData().image" />  
+  </div>
+</div>

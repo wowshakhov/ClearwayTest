@@ -1,0 +1,12 @@
+<div class="annotationEditor">
+  <h1>New Annotation</h1>
+  <div>
+    <div class="field">Text: <input [(ngModel)]="text" /></div>
+    <div class="field">Image: <input type="file" (change)="onImageUploaded($event)" /></div>  
+  </div>
+  <div>
+    <button (click)="onSave()">Save</button>
+  </div>
+</div>
+
+<div class="backdrop" (click)="$event.stopPropagation()"></div>

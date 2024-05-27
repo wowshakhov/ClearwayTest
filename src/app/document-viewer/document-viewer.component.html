@@ -1,0 +1,44 @@
+<app-annotation-editor 
+  *ngIf="newAnnotationData"
+  [annotationData]="newAnnotationData"
+  (annotationSaved)="onAnnotationAdded($event)"
+></app-annotation-editor>
+
+<div class="documentView" (dragover)="$event.preventDefault()">
+  <h1>{{ document().name }}</h1>
+
+  <app-zoom *ngIf="isLoaded" class="zoom spacer" [(zoom)]="zoom" (zoomChange)="onZoomChange()"></app-zoom>
+  
+  <button class="spacer" (click)="onSave()">Save</button>
+
+  <div class="pagesView">
+    @for (page of document().pages; track page.imageUrl) {
+      <div class="imageContainer">
+        <img
+          #pageImage
+          class="image"
+          draggable="false"
+          [src]="page.imageUrl"
+          (load)="onImageLoad($event, page.imageUrl)"
+          [style.width.px]="imageWidth(page.imageUrl)"
+          (dblclick)="createAnnotation($event, page.imageUrl)"
+          (dragover)="$event.preventDefault()"
+        />
+
+        @for (annotation of (annotations[page.imageUrl] || []); track $index) {
+          <div
+            class="annotation"
+            [style.left.px]="annotation.x"
+            [style.top.px]="annotation.y"
+            (dragend)="onAnnotationDragged($event, annotation)"
+          >
+            <app-annotation
+              [annotationData]="annotation"
+              (annotationDeleted)="onAnnotationDeleted(annotation)"
+            ></app-annotation>
+          </div>
+        }
+      </div>
+    }  
+  </div>
+</div>

@@ -1,0 +1,26 @@
+.annotationEditor {
+  position: fixed;
+  border: 1px solid black;
+  width: 400px;
+  height: 200px;
+  padding: 8px;
+  z-index: 3;
+  top: calc(50% - 100px);
+  left: calc(50% - 200px);
+  background-color: white;
+}
+
+.field {
+  margin-bottom: 8px;
+}
+
+.backdrop {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  opacity: 75%;
+  background-color: wheat;
+}
