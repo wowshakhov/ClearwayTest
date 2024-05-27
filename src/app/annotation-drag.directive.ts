@@ -10,7 +10,6 @@ export class AnnotationDragDirective {
 
   @HostListener('dragend', ['$event']) 
   onDragEnd(event: MouseEvent) {
-    console.log(event)
     // 8px and 12px shifts are needed to readjust the position of the 
     // dragged element so that the cursor is centered on the drag handle
     this.annotation().x += event.offsetX - 8;
